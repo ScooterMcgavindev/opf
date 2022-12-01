@@ -1,0 +1,27 @@
+% Overhead File
+
+clc 
+clear all 
+close all 
+format long g
+
+file= '9bus.cf';
+S.file= file;
+%x= strcmp(file,'')
+
+fid=fopen(file, 'r'); % opens speciifc file
+
+str=fgetl(fid); %read line from file
+
+%Read Bus Information
+S=readcf(S);
+
+%Create Ybus Matrix
+S=Ybus(S);
+
+% Optimal Power Flow
+S=opf(S);
+
+%Calculations
+S=calcs(S);
+

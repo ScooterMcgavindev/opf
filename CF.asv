@@ -1,0 +1,15 @@
+function cost = CF(x,S)
+
+n = S.bus.n;
+ng = S.Gen.ng;
+
+Ps = x*(2*n:2*n+ng-1)*100;
+a = S.Gen.a;
+b = S.Gen.b;
+c = S.Gen.c;
+
+% Cgi = alphagi
+
+cost = (S.Gen.a)'*Ps.^2+S.Gen.b'*Ps+ones(1,ng)*S.Gen.c;
+
+end
